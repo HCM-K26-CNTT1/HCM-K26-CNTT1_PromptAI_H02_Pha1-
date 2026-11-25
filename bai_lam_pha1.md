@@ -1,8 +1,8 @@
 # BÀI LÀM PHA 1 
 
-- **Họ tên:**
-- **Lớp:**
-- **Link repository Pha1:**
+- **Họ tên:** Nguyễn Trần Đan Linh
+- **Lớp:** CNTT1
+- **Link repository Pha1:** https://github.com/HCM-K26-CNTT1/HCM-K26-CNTT1_PromptAI_H02_Pha1-.git
 
 > Pha 1 (70 phút đầu, KHÔNG dùng AI). Viết xong, kéo thả file này vào repository Pha1 trước mốc giờ giám thị công bố.
 
@@ -94,7 +94,26 @@ E - Extras:
 **PROMPT**
 
 ```text
-(Viết prompt vào đây – xoá dòng này)
+Bạn là một Kế toán viên có kinh nghiệm 10 năm
+Hãy tính tổng tiền cho yêu cầu báo giá dựa trên những thông tin trong <bang_gia></bang_gia>; <quy_tac_tinh_gia></quy_tac_tinh_gia>; <yeu_cau_bao_gia></yeu_cau_bao_gia>
+<bang_gia>BẢNG GIÁ VÉ (đồng/người lớn)
+SVT – Sân Vận Động: 1.200.000
+FZ – Fan Zone: 800.000
+VIP – Khán đài VIP: 2.500.000</bang_gia>
+<quy_tac_tinh_gia>1. Trẻ em từ 5 đến 11 tuổi tính 70% giá người lớn. Trẻ dưới 5 tuổi miễn phí.
+2. Nhóm từ 5 người lớn trở lên được giảm 5% trên tiền vé (tiền người lớn + tiền trẻ em).
+3. Phụ thu khu ghế ưu tiên: 300.000 đồng/người. Phụ thu không được giảm giá.
+4. Tổng tiền = tiền vé sau giảm + phụ thu.</>quy_tac_tinh_gia>
+<yeu_cau_bao_gia>Nhóm cổ động viên đi xem trận bán kết, mua gói SVT, gồm 5 người lớn, 2 trẻ em (8 tuổi và 10 tuổi) và 1 bé 3 tuổi. Có 1 người lớn chọn khu ghế ưu tiên.</yeu_cau_bao_gia>
+Các bước thực hiện
+Bước 1: đọc thông tin trong <bang_gia></bang_gia>; <quy_tac_tinh_gia></quy_tac_tinh_gia>; <yeu_cau_bao_gia></yeu_cau_bao_gia>
+Bước 2: hãy suy nghĩ theo từng bước theo thứ tự tiền người lớn → tiền trẻ em → tiền vé → giảm giá nhóm → phụ thu → tổng tiền; mỗi bước ghi phép tính
+Bước 3: Tính ra kết quả: <tổng tiền> đồng
+Sử dụng giọng điệu chính xác, minh bạch, chuyên nghiệp
+Yêu cầu đầu ra: 
+- Có các bước tính toán, mỗi bước ghi phép tính
+- Kết quả cuối cùng có dạng: <tổng tiền> đồng
+
 ```
 
 ## 4.4. Dây chuyền xử lý khiếu nại (Prompt Chaining)
@@ -104,14 +123,24 @@ E - Extras:
 **PROMPT**
 
 ```text
-(Viết prompt vào đây – xoá dòng này)
+Đây là EMAIL KHIẾU NẠI CỦA KHÁN GIẢ:
+<email>Tôi là khán giả mua vé gói SVT trận Cúp Sao Vàng ngày 02/11/2026, đi 2 người lớn. Ban tổ chức cam kết khu khán đài có mái che nhưng trong 2 hiệp đầu chúng tôi bị xếp sang khu không mái, trời mưa và ghế ướt. Nhân viên soát vé rất nhiệt tình, tôi không có gì phàn nàn về nhân viên. Tôi đề nghị ban tổ chức giải quyết thỏa đáng.</email>
+
+Bạn là một nhân viên xử lý yêu cầu khiếu nại 
+Hãy đọc email, trả về chỉ một đối tượng JSON gồm đúng 4 trường:
+{"loai_su_co": một trong "tran_gio" | "sai_khu_vuc" | "nhan_vien" | "khac", "so_khach": số nguyên, "so_hiep_bi_anh_huong": số nguyên hoặc null, "tom_tat": "không quá 20 từ"}
+Giọng điệu chính xác, minh bạch, rõ ràng
+Định dạng đầu ra: 
+- Không thêm lời chào xã giao và nội dung như "tôi đã nhận được thông tin, tôi sẽ làm ngay"
+- chỉ trả về một đối tượng JSON gồm đúng 4 trường như yêu cầu
+- hãy trả về bản tom_tat không quá 20 từ
 ```
 
 ### b) Hai điều cần kiểm tra ở JSON đầu ra của Trạm 1
 
-1. (Viết câu trả lời vào đây – xoá dòng này)
+1. Câu trả lời có trả về một đối tượng JSON gồm đúng 4 trường như yêu cầu không giải thích hay không
 
-2.
+2. Phạm vi, độ dài đầu ra có đúng với yêu cầu trả về bản tom_tat không quá 20 từ và nội dung output có đúng với nội dung input không
 
 ### c) Câu lệnh viết tiếp
 
